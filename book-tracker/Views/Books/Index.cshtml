@@ -22,7 +22,7 @@
                     <div class="col-md-6">
                         <h4>@book.Title</h4>
                         <p>@book.Description</p>
-                        <a asp-action="Edit" class="btn btn-primary">Edit book</a>
+                        <a asp-action="Edit" asp-route-id="@book.BookID" class="btn btn-primary">Edit book</a>
                     </div>
                     <div class="col-md-6">
                         <img src="@book.ImageURL">

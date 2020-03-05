@@ -12,5 +12,7 @@ namespace book_tracker.Contexts
         public BookTrackerContext(DbContextOptions<BookTrackerContext> options) : base(options) { }
 
         public DbSet<Book> Books { get; set; }
+        public DbSet<Author> Authors { get; set; }
+        public DbSet<Rating> Ratings { get; set; }
     }
 }

@@ -14,8 +14,8 @@ namespace book_tracker.Models
         public Uri ImageURL { get; set; }
         public Uri BookDepoURL { get; set; }
 
-        //public Author Author { get; set; }
-        //public IEnumerable<Rating> BookRatings { get; set; }
-        //public int AuthorID { get; set; }
+        public Author Author { get; set; }
+        public IEnumerable<Rating> BookRatings { get; set; }
+        public int AuthorID { get; set; }
     }
 }
