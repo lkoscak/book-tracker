@@ -1,13 +1,11 @@
 ﻿@model IEnumerable<book_tracker.Models.Book>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Books";
 }
 
-<h1>Index</h1>
-
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class ="btn btn-primary">New book</a>
 </p>
 
 <div class="panel panel-primary">
@@ -20,9 +18,12 @@
             {
                 <div class="col-md-6">
                     <div class="col-md-6">
-                        <h4>@book.Title</h4>
+                        <h5>@book.Title</h5>
+                        <h6>@book.Author.AuthorsName</h6>
                         <p>@book.Description</p>
+                        <h6>@book.BookRatings.First().Review</h6>
                         <a asp-action="Edit" asp-route-id="@book.BookID" class="btn btn-primary">Edit book</a>
+                        <a asp-action="Delete" asp-route-id="@book.BookID" class="btn btn-danger">Delete book</a>
                     </div>
                     <div class="col-md-6">
                         <img src="@book.ImageURL">
@@ -32,3 +33,4 @@
         </div>
     </div>
 </div>
+

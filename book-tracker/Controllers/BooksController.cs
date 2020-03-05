@@ -22,7 +22,7 @@ namespace book_tracker.Controllers
         // GET: Books
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Books.ToListAsync());
+            return View(await _context.Books.Include(b => b.Author).Include(b => b.BookRatings).ToListAsync());
         }
 
         // GET: Books/Details/5
@@ -97,6 +97,7 @@ namespace book_tracker.Controllers
             {
                 try
                 {
+                  
                     _context.Update(book);
                     await _context.SaveChangesAsync();
                 }
@@ -124,8 +125,10 @@ namespace book_tracker.Controllers
                 return NotFound();
             }
 
-            var book = await _context.Books
-                .FirstOrDefaultAsync(m => m.BookID == id);
+            var query = _context.Books.Where(b => b.BookID == id).Include(b => b.Author).Include(b => b.BookRatings);
+            var book = await query.SingleAsync();
+
+            
             if (book == null)
             {
                 return NotFound();
@@ -139,7 +142,8 @@ namespace book_tracker.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var book = await _context.Books.FindAsync(id);
+            var book = await _context.Books.Include(m => m.BookRatings)
+                .FirstOrDefaultAsync(m => m.BookID == id);
             _context.Books.Remove(book);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));

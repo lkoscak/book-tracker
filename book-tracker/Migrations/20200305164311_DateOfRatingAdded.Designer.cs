@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using book_tracker.Contexts;
 
 namespace book_tracker.Migrations
 {
     [DbContext(typeof(BookTrackerContext))]
-    partial class BookTrackerContextModelSnapshot : ModelSnapshot
+    [Migration("20200305164311_DateOfRatingAdded")]
+    partial class DateOfRatingAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
