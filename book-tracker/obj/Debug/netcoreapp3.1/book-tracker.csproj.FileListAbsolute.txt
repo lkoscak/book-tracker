@@ -52,3 +52,15 @@ D:\Projekti\book-tracker-mvc\book-tracker\bin\Debug\netcoreapp3.1\runtimes\unix\
 D:\Projekti\book-tracker-mvc\book-tracker\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 D:\Projekti\book-tracker-mvc\book-tracker\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 D:\Projekti\book-tracker-mvc\book-tracker\obj\Debug\netcoreapp3.1\book-tracker.csproj.CopyComplete
+D:\Projekti\book-tracker-mvc\book-tracker\bin\Debug\netcoreapp3.1\book-tracker.deps.json
+D:\Projekti\book-tracker-mvc\book-tracker\bin\Debug\netcoreapp3.1\book-tracker.runtimeconfig.json
+D:\Projekti\book-tracker-mvc\book-tracker\bin\Debug\netcoreapp3.1\book-tracker.runtimeconfig.dev.json
+D:\Projekti\book-tracker-mvc\book-tracker\bin\Debug\netcoreapp3.1\book-tracker.dll
+D:\Projekti\book-tracker-mvc\book-tracker\bin\Debug\netcoreapp3.1\book-tracker.pdb
+D:\Projekti\book-tracker-mvc\book-tracker\bin\Debug\netcoreapp3.1\book-tracker.Views.dll
+D:\Projekti\book-tracker-mvc\book-tracker\bin\Debug\netcoreapp3.1\book-tracker.Views.pdb
+D:\Projekti\book-tracker-mvc\book-tracker\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+D:\Projekti\book-tracker-mvc\book-tracker\obj\Debug\netcoreapp3.1\book-tracker.MvcApplicationPartsAssemblyInfo.cache
+D:\Projekti\book-tracker-mvc\book-tracker\obj\Debug\netcoreapp3.1\book-tracker.Views.pdb
+D:\Projekti\book-tracker-mvc\book-tracker\obj\Debug\netcoreapp3.1\book-tracker.dll
+D:\Projekti\book-tracker-mvc\book-tracker\obj\Debug\netcoreapp3.1\book-tracker.pdb
