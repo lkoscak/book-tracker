@@ -16,7 +16,7 @@
         <div class="row">
             @foreach (var book in Model)
             {
-                <div class="col-md-6">
+                <div class="col-md-6 book-info">
                     <div class="col-md-6">
                         <h5>@book.Title</h5>
                         <h6>@book.Author.AuthorsName</h6>
@@ -29,6 +29,7 @@
                         <img src="@book.ImageURL">
                     </div>
                 </div>
+                <hr>
             }
         </div>
     </div>

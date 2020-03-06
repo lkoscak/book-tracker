@@ -46,7 +46,18 @@ namespace book_tracker.Controllers
         // GET: Books/Create
         public IActionResult Create()
         {
-            return View();
+
+            var modelViewBook = new BooksViewModel
+            {
+                Authors = _context.Authors.Select(a =>
+                                  new SelectListItem
+                                  {
+                                      Value = a.AuthorID.ToString(),
+                                      Text = a.AuthorsName
+                                  }).ToList()
+            };
+
+            return View(modelViewBook);
         }
 
         // POST: Books/Create
@@ -54,11 +65,23 @@ namespace book_tracker.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("BookID,Title,Description,NumberOfPages,ImageURL,BookDepoURL")] Book book)
+        public async Task<IActionResult> Create([Bind("BookID,Title,Description,NumberOfPages,ImageURL,BookDepoURL, AuthorID, Review")] BooksViewModel book)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(book);
+                var newBook = new Book();
+                _context.Add(newBook).CurrentValues.SetValues(book);
+                var newRating = new Rating();
+                _context.Add(newRating).CurrentValues.SetValues(book);
+                var author = await _context.Authors.FindAsync(book.AuthorID);
+                if (author == null)
+                {
+                    author = new Author();
+                    author.AuthorsName = "test";
+                }
+
+                newBook.Author = author;
+                _context.Entry(newRating).Property("BookID").CurrentValue = newBook.BookID;
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
