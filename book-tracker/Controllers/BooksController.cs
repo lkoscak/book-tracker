@@ -97,11 +97,32 @@ namespace book_tracker.Controllers
             }
 
             var book = await _context.Books.FindAsync(id);
+            var authors = await _context.Authors.Select(a =>
+                                  new SelectListItem
+                                  {
+                                      Value = a.AuthorID.ToString(),
+                                      Text = a.AuthorsName
+                                  }).ToListAsync();
+
+            var bookViewModel = new BooksViewModel() { 
+                Title = book.Title,
+                Description = book.Description,
+                NumberOfPages = book.NumberOfPages,
+                ImageURL = book.ImageURL,
+                BookDepoURL = book.BookDepoURL,
+                Author = book.Author,
+                Review = book.BookRatings.First().Review,
+                Authors = authors
+                
+            };
+
+
+
             if (book == null)
             {
                 return NotFound();
             }
-            return View(book);
+            return View(bookViewModel);
         }
 
         // POST: Books/Edit/5
@@ -109,18 +130,14 @@ namespace book_tracker.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("BookID,Title,Description,NumberOfPages,ImageURL,BookDepoURL")] Book book)
+        public async Task<IActionResult> Edit(int id, [Bind("BookID,Title,Description,NumberOfPages,ImageURL,AuthorID, Review")] BooksViewModel book)
         {
-            if (id != book.BookID)
-            {
-                return NotFound();
-            }
-
+           
             if (ModelState.IsValid)
             {
                 try
                 {
-                  
+
                     _context.Update(book);
                     await _context.SaveChangesAsync();
                 }

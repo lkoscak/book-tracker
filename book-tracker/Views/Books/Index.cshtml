@@ -22,14 +22,16 @@
                         <h6>@book.Author.AuthorsName</h6>
                         <p>@book.Description</p>
                         <h6>@book.BookRatings.First().Review</h6>
-                        <a asp-action="Edit" asp-route-id="@book.BookID" class="btn btn-primary">Edit book</a>
-                        <a asp-action="Delete" asp-route-id="@book.BookID" class="btn btn-danger">Delete book</a>
+                        @*<a asp-action="Edit" asp-route-id="@book.BookID" class="btn btn-primary">Edit book</a>*@
+                        <a asp-action="Delete" asp-route-id="@book.BookID" class="btn btn-sm btn-danger">Delete book</a>
+                        
+                        <a href=@book.BookDepoURL class="btn btn-sm btn-warning">BookDepo</a>
                     </div>
                     <div class="col-md-6">
                         <img src="@book.ImageURL">
                     </div>
                 </div>
-                <hr>
+                <hr />
             }
         </div>
     </div>
