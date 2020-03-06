@@ -18,5 +18,7 @@ namespace book_tracker.Models
         public List<SelectListItem> Authors { get; set; }
         public int AuthorID {get;set;}
         public String Review { get; set; }
+
+        public Author Author { get; set; }
     }
 }

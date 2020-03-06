@@ -172,6 +172,24 @@ namespace book_tracker.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        // POST: Books/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateAuthor(Author author)
+        {
+
+            if (ModelState.IsValid)
+            {
+
+                _context.Add(author);
+                await _context.SaveChangesAsync();
+            }
+               
+            return RedirectToAction("Create");
+        }
+
         private bool BookExists(int id)
         {
             return _context.Books.Any(e => e.BookID == id);
